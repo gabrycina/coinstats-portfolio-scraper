@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "coinbase-api-331808",
+  "private_key_id": "feaf6122954dc47eb381988b7d68dd5ea58832a2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC7BsMTjqLjAzmk\n9Q080JBrhOapZlMXg45+6oHEVFg0CVtlbiJcijly2AtMrCouTov6YnWXEC3vNKBg\nVL4rEHgyeROsw3Ijx4t8ySdEF3yCQiVNKlDNuM2Zt9EDcVVaXY3rdxokLoZC+ES/\noHtHR6cKFlvrIi2Fm6hj6GCHCN6f3xwJcr/kXTXQHFfkFlAkPvE6yEvRr4OVHUg0\nX1mkmvb9lT5tasJnOIeQuEFlCzi3caQ0d3eERvQwjWNVU8PCpPK8dLaBzf3YmlpE\n1QGZ9cEtmut3ff/qZV6tuy5n6znpkdEu6nE367pJUJZilgJL0SpVa8Tboq8maWQT\ngiAE7yHHAgMBAAECggEAAo9FvlNj0Ps7X8qj55LISBv8z/ULgDG3y3zEtR3kZnpd\nMepaBCbFQUoRG00HsFBx46lTMskGSpT6MZkZF6MDkTsNUX5hSbJn1dCnL6UbwUxo\nWCyEzyXBEUXKX84wHOr/3hOhKiDTxJVt0+OSxwXMahEYYi5I2G6qHGDS2rZD3Uwk\nJDFOUrjGHya53tphfRVvPYp16sj+C2WAkGj1T4PWNzKSv2YftTbA6NeGhWq4Jjz0\ne7qKO2K6xqSWc/lm/ptfoKZAOEoOoYORkBXATwp8072D2Uv9cMDisstgi+RBq9wd\nmEqM7HluY/bD17HVyMQGHW1Qji9+i543UksZ+kS0zQKBgQDdUL3yFirHU8Yjfxxn\nYH5V2K3srX/ZpXLrZn7ySQvHl1x16sluH9DKpY5kX8kAe8mIHvetherUOgWBcBwj\nIbjfszU/Xo/BJ68b2wIIhqgKxTbuRSMF7BbUBxUubDukMa1ftOheHcQMXXwV6DIr\ncRwAAPXCVL691K6E6w3v5xtRgwKBgQDYVlU7xuAaT2FIMTaCeExd9oIZhoVmX1wb\nZ/pEDaWekurlmUMYsI8zZsAPxvQ8PbAuSDuSEuOOEueopv2qbNcTvjwX9OlFI1gv\nt+Pj5zOuszK2xOXTbL9/8bTa6eddfYnef9lrz6PbYSNg9560MgUJMDvKYTOeO1yD\nJCWnVGJPbQKBgEEzxIJKHZhUCg/zJv8d4pqQF82e4AfTQqQvsj7XXm0THt5uqaGU\nJgNN+0F/JszJq3o7BWVOCv0ziuOzj9aZ3MmrFojw5xFVC7X9NAAnC+MAb0qLe+IG\nyEL3QzpGENwy9o030y3HPzcVY7Vgj0dVL5agscbrCLcMrc3jIlwHjnjZAoGAVd8/\nCfFRN2BW/y75siRKO+oDjlpFTXOAvigxwR2hpiYvM1/4sC41SXP5vMl+XQMnkdd+\nPeddiCGc7ucKPcHiRaX3eJLwnU8ATEC0Jty5ORlMghv6FkhOY1zwKw05l3SjazxY\nc2ECa6xNPMpNpr1MHm+U7CpVMPPjLvMENz1ZoKkCgYBcyh9Nj7POGYl9SaqpZLQG\n1XpjNNDxtIlYBHVhsNh+QW6zZq0DL8U7sTCjbquREYASmdVmRJnmU9k5u4sjKeNH\nnq2C2vIzvRw11jRmE6s0FW4eX6rJZISjgoSxUABLsHaWIIR4hBt/tOQ8L+AsMUXB\n5q9hUl9oLGUR25V3zNOI6g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "coinbase-tracking@coinbase-api-331808.iam.gserviceaccount.com",
+  "client_id": "111976649593715924444",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/coinbase-tracking%40coinbase-api-331808.iam.gserviceaccount.com"
+}
