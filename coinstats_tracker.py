@@ -10,7 +10,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 #URLs
-url = 'INSERT YOUR COINSTATS PORTFOLIO LINK HERE'
+url = 'https://coinstats.app/p/76ktZa'
 
 #Selenium opening chrome without tabs
 options = webdriver.ChromeOptions()
@@ -23,7 +23,7 @@ driver = webdriver.Chrome(service=s, options=options)
 # CREDENTIALS
 google_creds_filename = "Portfolio.json"
 
-my_coinstats = {'currencies': []}
+my_coinstats = {'currencies': [], 'total': 0}
 
 def pull_cs_account_info():
     print("1. Gathering Coinstats portfolio information...")
@@ -40,17 +40,19 @@ def pull_cs_account_info():
 
         # Get current amount of currency and your totals
         currency_name = values[0]
-        current_quantity = values[1]
-        current_price = values[2]
+        current_quantity = values[1].replace(",", "")
+        current_price = values[2][1:].replace(",", "")
 
         currency_dict = {
             'symbol': currency_name,
             'quantity': current_quantity,
             'current_price': current_price,
+            'owned': float(current_quantity) * float(current_price) * 0.89
         }
 
         if(currency_dict.get('quantity') != '0'):
             my_coinstats['currencies'].append(currency_dict)
+            my_coinstats['total'] += currency_dict['owned']
 
     return my_coinstats
 
@@ -79,6 +81,7 @@ def generate_portfolio_overview(my_coinstats, spreadsheet):
     currency_count = len(my_coinstats['currencies'])
 
     currency_cell_list = wks1.range('A2:F' + str(2 + currency_count))
+    last_cell = 0
     # Iterate over each currency
     for idx, currency in enumerate(my_coinstats['currencies']):
         cell = 0 + (idx*6)
@@ -87,12 +90,18 @@ def generate_portfolio_overview(my_coinstats, spreadsheet):
         cell += 1
 
         # Current Quantity
-        currency_cell_list[cell].value = float(currency['quantity'].replace(",", ""))
+        currency_cell_list[cell].value = float(currency['quantity'])
         cell += 1
 
         # Current Price
-        currency_cell_list[cell].value = float(currency['current_price'][1:].replace(",", ""))
+        currency_cell_list[cell].value = float(currency['current_price'])
         cell += 1
+
+        currency_cell_list[cell].value = currency['owned']
+        cell += 1
+        last_cell = cell
+    
+    currency_cell_list[last_cell].value = my_coinstats['total']
 
     print("3. Writing information to sheet 1...")
     # Update spreadsheet with currency overview
