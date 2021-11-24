@@ -10,7 +10,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 #URLs
-url = 'https://coinstats.app/p/76ktZa'
+url = 'INSERT YOUR COINSTATS PORTFOLIO LINK HERE'
 
 #Selenium opening chrome without tabs
 options = webdriver.ChromeOptions()
