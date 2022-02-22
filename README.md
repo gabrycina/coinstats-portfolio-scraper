@@ -11,7 +11,8 @@ Coinstats Portfolio Scraper lets you add your crypto portfolio data to Google Sh
 - Put the credentials in the same folder of the script and run it by typing:
 
 ```bash
-python3 coinstats-tracker.py
+pip install webdrive-manager
+python3 coinstats_tracker.py
 ```
 
 ## Edit it
