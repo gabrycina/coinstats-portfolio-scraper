@@ -9,10 +9,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-#URLs
+# URLs
 url = 'https://coinstats.app/p/76ktZa'
 
-#Selenium opening chrome without tabs
+# Selenium opening chrome without tabs
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
@@ -25,18 +25,21 @@ google_creds_filename = "Portfolio.json"
 
 my_coinstats = {'currencies': [], 'total': 0}
 
+
 def pull_cs_account_info():
     print("1. Gathering Coinstats portfolio information...")
     driver.get(url)
-    
+
     # Obtain the number of rows in body
-    rows = len(driver.find_elements(By.XPATH, "/html/body/div[1]/main/div/div/div[4]/table/tbody/tr"))
-    
+    rows = len(driver.find_elements(
+        By.XPATH, "/html/body/div[1]/main/div/div/div[4]/table/tbody/tr"))
+
     for r in range(1, rows+1):
         values = []
         for p in range(2, 6):
             # obtaining the text from each column of the table
-            values.append(driver.find_element(By.XPATH, "/html/body/div[1]/main/div/div/div[4]/table/tbody/tr["+str(r)+"]/td["+str(p)+"]").text)
+            values.append(driver.find_element(
+                By.XPATH, "/html/body/div[1]/main/div/div/div[4]/table/tbody/tr["+str(r)+"]/td["+str(p)+"]").text)
 
         # Get current amount of currency and your totals
         currency_name = values[0]
@@ -75,33 +78,24 @@ def connect_to_google_ss(google_creds_filename, ss_name):
 def generate_portfolio_overview(my_coinstats, spreadsheet):
     # Fill first worksheet
     # open portfolio overview worksheet from file
-    wks1 = spreadsheet.get_worksheet(1)
+    wks1 = spreadsheet.get_worksheet(4)
 
     # ADD PORTFOLIO OVERVIEW DETAILS INTO SPREADSHEET
     currency_count = len(my_coinstats['currencies'])
 
-    currency_cell_list = wks1.range('A2:F' + str(2 + currency_count))
+    currency_cell_list = wks1.range('A2:B' + str(2 + currency_count))
     last_cell = 0
+
     # Iterate over each currency
     for idx, currency in enumerate(my_coinstats['currencies']):
-        cell = 0 + (idx*6)
+        cell = 0 + (idx*2)
         # Symbols
         currency_cell_list[cell].value = currency['symbol']
-        cell += 1
-
-        # Current Quantity
-        currency_cell_list[cell].value = float(currency['quantity'])
         cell += 1
 
         # Current Price
         currency_cell_list[cell].value = float(currency['current_price'])
         cell += 1
-
-        currency_cell_list[cell].value = currency['owned']
-        cell += 1
-        last_cell = cell
-    
-    currency_cell_list[last_cell].value = my_coinstats['total']
 
     print("3. Writing information to sheet 1...")
     # Update spreadsheet with currency overview
